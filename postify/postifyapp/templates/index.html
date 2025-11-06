@@ -12,7 +12,18 @@
     not too sure on the concept right now!</p>
 
     <h1>Posts</h1>
-    <h2>Username:</h2>
-    <p>{{ post1 }}</p>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+    </form>
+    
+   {% for post in posts %}
+        <p>{{ post }}</p>
+    {% endfor %}
+
+
+    
 </body>
 </html>
