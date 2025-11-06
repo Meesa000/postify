@@ -19,7 +19,7 @@ def homepage(request):
             author = post_form.cleaned_data["username"]
             message = post_form.cleaned_data["post_area"]
             print(f"Message: {message} was posted by: {author}")
-            posts["posts"].insert(len(posts["posts"]), f"{author}: {message}")
+            posts["posts"].insert(len(posts["posts"]), f"{author.capitalize()}: {message.capitalize()}")
             print(posts["posts"])
         else:
             post_form = PostForm()
