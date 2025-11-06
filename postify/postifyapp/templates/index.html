@@ -12,10 +12,9 @@
     not too sure on the concept right now!</p>
 
     <h1>Posts</h1>
-
     <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ post_form.as_p }}
     <button type="submit">Submit</button>
     </form>
     

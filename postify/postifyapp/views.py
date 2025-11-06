@@ -18,11 +18,18 @@ def homepage(request):
              "Web development is fun!",
              "Hope you're enjoying Postify!",
              "Last post in the list."]}
-    form = PostForm()
+
+    # Handle post submission form
+    if request.method == "POST":
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            print("Post submitted!")
+        else:
+            post_form = PostForm()
+        
     context = {
-        **posts, **username, **{"form": form}
+        **posts, **username, **{"post_form": post_form}
     }
 
-    
     return render(request, "index.html", context)
 
