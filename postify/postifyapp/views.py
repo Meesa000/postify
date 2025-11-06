@@ -19,11 +19,16 @@ def homepage(request):
              "Hope you're enjoying Postify!",
              "Last post in the list."]}
 
+    post_form= PostForm()
+
     # Handle post submission form
     if request.method == "POST":
         post_form = PostForm(request.POST)
         if post_form.is_valid():
             print("Post submitted!")
+            author = post_form.cleaned_data["username"]
+            message = post_form.cleaned_data["post_area"]
+            print(f"Message: {message} by {author}")
         else:
             post_form = PostForm()
         
