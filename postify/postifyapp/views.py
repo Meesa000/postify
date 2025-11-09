@@ -1,23 +1,18 @@
 from django.shortcuts import render
+from .models import PostForm as PostFormDB
 from .form import PostForm
+from django.shortcuts import redirect
+
 
 # Create your views here.
 def homepage(request):
-
-    username = {"username" : ["User1", "User2", "User3", "User4", "User5"]}
+    
     posts = {
         
-            "posts" : []}
-
-    post_form = PostForm(request.POST)
-    if request.method == "POST":
-        post_form = PostForm(request.POST, request.FILES)
-        if post_form.is_valid():
-            post_form.save()
-        
-        
+            "posts" : PostFormDB.objects.all()}
+ 
     context = {
-        **posts, **username, **{"post_form": post_form}
+        **posts
     }
 
     return render(request, "index.html", context)
