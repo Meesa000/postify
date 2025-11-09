@@ -1,5 +1,11 @@
 from django import forms
+from django.forms import ModelForm
+from .models import PostForm
 
-class PostForm(forms.Form):
-    username = forms.CharField(max_length=20, label="Username:")
-    post_area = forms.CharField(widget=forms.Textarea, label="Your Post:")
+class PostForm(ModelForm):
+    author = forms.TextInput()
+    message = forms.TextInput()
+    class Meta:
+        model = PostForm
+        fields = ['author', 'message']
+        

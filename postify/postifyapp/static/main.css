@@ -1,0 +1,44 @@
+body {
+    background-color: grey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+} 
+
+.post-title {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.submit-button {
+    /* center the button horizontally */
+    display: block;
+    margin: 16px auto;     /* horizontal centering for block layout */
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.submit-form {
+    width: 300px;
+}
+
+

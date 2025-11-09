@@ -1,9 +1,10 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
     <title>Postify</title>
 </head>
 <body>
@@ -11,11 +12,11 @@
     <p>Hello, and welcome to Postify. Postify is a website created by Asim, the project started on 05/11/2025. It's something akin to a social media website...
     not too sure on the concept right now!</p>
 
-    <h1>Posts</h1>
-    <form method="post">
+    <h1 class="post-title">Posts</h1>
+    <form method="post" class="submit-form" enctype="multipart/form-data">
     {% csrf_token %}
     {{ post_form.as_p }}
-    <button type="submit">Submit</button>
+    <button type="submit" class="submit-button">Submit</button>
     </form>
     
    {% for post in posts %}
