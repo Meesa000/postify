@@ -8,14 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
-<body class="bg-dark d-flex flex-row mb-3 ms-4 my-4 text-center">
-    
+
+<body class="bg-dark bg-gradient d-flex flex-row mb-3 ms-4 my-4 text-center">
+
         <!-- Main Header Card -->
-        <div class="card bg-dark-subtle mx-5 flex-grow-1" id="main-header">
+        <div class="card bg-dark  mx-5 flex-grow-1 text-white" id="main-header">
         <div class="card-body">
             <figure class="text-center">
             <blockquote class="blockquote">
-                <h1>My Feed</h1>
+                <h1 class="text-decoration-underline">My Feed</h1>
             </blockquote>
 
             <!-- Renders post from DB here -->
