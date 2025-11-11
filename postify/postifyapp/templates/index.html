@@ -10,39 +10,24 @@
 
 </head>
 <body class="bg-dark d-flex flex-row mb-3 ms-4 my-4 text-center">
-    <div class="d-flex p2">
-        
-            <div class="card bg-dark-subtle ms-1 flex-grow-0">
-        <div class="card-header">
-            Postify v.01
-        </div>
-        <div class="card-body">
-            
-            <figure>
-            <blockquote class="blockquote">
-                <p>Made by Asim - to learn Django & Bootstrap</p>
-            </blockquote>
-            <figcaption class="blockquote-footer">
-                Asim 09/11/2025
-            </figcaption>
-            </figure>
-            <p>tn lectus odio. Etiam efficitur maximus justo, id convallis quam eleifend ac. Fusce et nisl augue. Donec viverra sapien ac nisi fermentum, nec dapibus massa semper. Vivamus sollicitudin, sem id congue dictum, libero mi interdum velit, in congue erat enim id elit. In hac habitasse platea dictumst.</p>
-        </div>
-        </div>
+
         
         <div class="card bg-dark-subtle mx-5 flex-grow-1" id="main-header">
         <div class="card-header ">
-            Postify header
+           Feed
         </div>
 
         <div class="card-body">
             
-            <figure>
+            <figure class="text-center">
+            <img src="{% static 'images/postify.png' %}" class="img-responsive" id="logo">
             <blockquote class="blockquote">
-                <img src="{% static 'images/postify.png' %}" class="img-responsive" id="logo">
                 <p>Another random post title over here for debug purposes!</p>
             </blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, tortor sit amet sollicitudin hendrerit, lectus augue sodales justo, ac euismod felis lacus ac nisl. Proin vel aliquet arcu, eget molestie ipsum. Etiam malesuada suscipit massa at ornare. Ut dignissim nunc vel elit maximus facilisis. Mauris iaculis, magna vitae accumsan feugiat, urna arcu sagittis nunc, ac blandit odio elit eget dolor. Donec luctus nisl non ex volutpat dapibus. Suspendisse consectetur lobortis purus id imperdiet. Phasellus condimentum massa elementum urna lobortis aliquet. Integer suscipit massa neque, non ullamcorper nibh fermentum et. Nunc non enim porta, sollicitudin nisl sed, vulputate libero. Pellentesque non lectus odio. Etiam efficitur maximus justo, id convallis quam eleifend ac. Fusce et nisl augue. Donec viverra sapien ac nisi fermentum, nec dapibus massa semper. Vivamus sollicitudin, sem id congue dictum, libero mi interdum velit, in congue erat enim id elit. In hac habitasse platea dictumst.
+            {% for post in posts %}
+                <li>{{ post.author }}</li>
+                <li>{{ post.message }}</li>
+            {% endfor %}
         </div>
         </div>
 
@@ -54,10 +39,7 @@
     {{ post_form.as_p }}
     </form>
     
-   <!-- {% for post in posts %}
-        <p>{{ post }}</p>
-    {% endfor %}
-     -->
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
