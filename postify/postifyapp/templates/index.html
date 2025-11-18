@@ -12,13 +12,27 @@
 <body class="bg-dark bg-gradient d-flex flex-row mb-3 ms-4 my-4 text-center">
 
         <!-- Main Header Card -->
-        <div class="card bg-dark  mx-5 flex-grow-1 text-white" id="main-header">
+        <div class="card bg-dark mx-5 flex-grow-1 text-white" id="main-header">
         <div class="card-body">
             <figure class="text-center">
             <blockquote class="blockquote">
                 <h1 class="text-decoration-underline">My Feed</h1>
             </blockquote>
-
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ post_form.non_field_errors }}
+                    <div class="mb-3">
+                        {{ post_form.author.label_tag }}
+                        {{ post_form.author }}
+                        {{ post_form.author.errors }}
+                    </div>
+                    <div class="mb-3">
+                        {{ post_form.message.label_tag }}
+                        {{ post_form.message }}
+                        {{ post_form.message.errors }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
             <!-- Renders post from DB here -->
                 {% for post in posts %}
                     <ul class="list-unstyled">
@@ -27,17 +41,9 @@
                         <li>{{ post.message }}</li>
                     </ul>
                 {% endfor %}
+
         </div>
         </div>
-
-
-
-    
-    <form method="post" class="submit-form" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ post_form.as_p }}
-    </form>
-    
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
