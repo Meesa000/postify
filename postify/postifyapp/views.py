@@ -6,13 +6,14 @@ from django.shortcuts import redirect
 
 # Create your views here.
 def homepage(request):
+    post_form = PostForm()
     if request.method == "POST":
-        post_form = PostForm(request.POST)
+        PostForm(request.POST)
         if post_form.is_valid():
             post_form.save()
-            return redirect('home')
-    else:
-        post_form = PostForm()
+        else:
+            post_form = PostForm()
+
 
     posts = {"posts": PostFormModel.objects.all()}
     context = {"post_form": post_form, **posts}
